@@ -1,4 +1,4 @@
-# Template
+# Phasma Phuge
 
 A simple dot maze game written in ANSI C using SDL2
 
