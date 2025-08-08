@@ -38,7 +38,7 @@ boolean bInitSDL(void) {
     return FALSE;
   }
   gpstWindow = SDL_CreateWindow(
-    "Dot Maze",
+    "Phasma Phuge",
     SDL_WINDOWPOS_CENTERED,
     SDL_WINDOWPOS_CENTERED,
     giWindowWidth,
