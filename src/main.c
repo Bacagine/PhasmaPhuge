@@ -37,7 +37,7 @@ STRUCT_COMMAND_LINE gstCmdLine;
  * @brief external variable.
  * Set 0 to disable default getopt error message
  */
-int opterr = 0;
+extern int opterr;
 
 const char* gkpszShortOptions = "h,v,t:d:";
 
@@ -170,6 +170,7 @@ static boolean bParseCommandLine(int argc, char **argv) {
  *                                                                            *
  ******************************************************************************/
 int main(int argc, char **argv) {
+  opterr = 0;
   gkpszProgramName = basename(argv[0]);
 
   memset(gszMap      , 0x00, sizeof(gszMap     ));
