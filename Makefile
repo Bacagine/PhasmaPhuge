@@ -57,9 +57,6 @@ $(OBJDIR):
 $(BINDIR):
 	mkdir -p $(BINDIR) || exit 1
 
-$(MANDIR):
-	mkdir -p $(MANDIR) || exit 1
-
 $(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -71,10 +68,11 @@ all: $(BIN)
 doc:
 	cd $(DOCDIR) && doxygen Doxyfile
 
-man: $(BIN) | $(MANDIR)
+man: $(BIN)
 ifdef _WIN32
 	@echo Manual generation is not supported on Windows.
 else
+	mkdir -p $(MANDIR) || exit 1
 	help2man $(BIN) > $(MANPAGE)
 	gzip -f $(MANPAGE)
 endif
